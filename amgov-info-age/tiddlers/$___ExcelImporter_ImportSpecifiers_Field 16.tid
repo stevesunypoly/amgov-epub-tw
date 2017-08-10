@@ -1,0 +1,12 @@
+created: 20170809194209220
+import-field-column: Chapters
+import-field-list-op: append
+import-field-name: tags
+import-field-source: constant
+import-field-type: string
+import-field-value: Chapters
+import-spec-role: field
+modified: 20170809194224359
+title: $:/_ExcelImporter/ImportSpecifiers/Field 16
+type: text/vnd.tiddlywiki
+

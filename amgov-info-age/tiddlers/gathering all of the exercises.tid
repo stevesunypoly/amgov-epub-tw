@@ -1,0 +1,12 @@
+created: 20170728033214264
+modified: 20170728034117058
+tags: 
+title: gathering all of the exercises
+type: text/vnd.tiddlywiki
+
+<$list filter="[role[epubble-spine]list-children[]search[Exercises]]">
+<<currentTiddler>><br>
+{{!!text}}
+<hr>
+</$list>
+

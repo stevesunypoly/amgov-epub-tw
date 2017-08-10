@@ -1,0 +1,13 @@
+created: 20170809181458684
+modified: 20170809183146897
+tags: 
+title: list of Chapters
+type: text/vnd.tiddlywiki
+
+<$list filter="[list[American Government and Politics in the Information Age//OEBPS/table-of-contents.xhtml-list-ul]search[table-of-contents.xhtml-list-item-chapter-]]">
+
+<$list filter="[{!!text}split:last[Chapter ]]">
+<<currentTiddler>>
+</$list>
+
+

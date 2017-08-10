@@ -1,0 +1,32 @@
+author: Niklas von Hertzen, adapted by Jeremy Ruston
+core-version: >=5.0.0
+created: 20170728020418237
+dependents: 
+description: base64-arraybuffer utility
+list: readme license
+modified: 20170728020418237
+plugin-type: plugin
+title: $:/plugins/tiddlywiki/base64-arraybuffer
+type: application/json
+version: 5.1.15-prerelease
+
+{
+    "tiddlers": {
+        "$:/plugins/tiddlywiki/base64-arraybuffer/base64-arraybuffer.js": {
+            "text": "/*\n * base64-arraybuffer\n * https://github.com/niklasvh/base64-arraybuffer\n *\n * Copyright (c) 2012 Niklas von Hertzen\n * Licensed under the MIT license.\n */\n(function(){\n  \"use strict\";\n\n  var chars = \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\";\n\n  // Use a lookup table to find the index.\n  var lookup = new Uint8Array(256);\n  for (var i = 0; i < chars.length; i++) {\n    lookup[chars.charCodeAt(i)] = i;\n  }\n\n  exports.encode = function(arraybuffer) {\n    var bytes = new Uint8Array(arraybuffer),\n    i, len = bytes.length, base64 = \"\";\n\n    for (i = 0; i < len; i+=3) {\n      base64 += chars[bytes[i] >> 2];\n      base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];\n      base64 += chars[((bytes[i + 1] & 15) << 2) | (bytes[i + 2] >> 6)];\n      base64 += chars[bytes[i + 2] & 63];\n    }\n\n    if ((len % 3) === 2) {\n      base64 = base64.substring(0, base64.length - 1) + \"=\";\n    } else if (len % 3 === 1) {\n      base64 = base64.substring(0, base64.length - 2) + \"==\";\n    }\n\n    return base64;\n  };\n\n  exports.decode =  function(base64) {\n    var bufferLength = base64.length * 0.75,\n    len = base64.length, i, p = 0,\n    encoded1, encoded2, encoded3, encoded4;\n\n    if (base64[base64.length - 1] === \"=\") {\n      bufferLength--;\n      if (base64[base64.length - 2] === \"=\") {\n        bufferLength--;\n      }\n    }\n\n    var arraybuffer = new ArrayBuffer(bufferLength),\n    bytes = new Uint8Array(arraybuffer);\n\n    for (i = 0; i < len; i+=4) {\n      encoded1 = lookup[base64.charCodeAt(i)];\n      encoded2 = lookup[base64.charCodeAt(i+1)];\n      encoded3 = lookup[base64.charCodeAt(i+2)];\n      encoded4 = lookup[base64.charCodeAt(i+3)];\n\n      bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);\n      bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);\n      bytes[p++] = ((encoded3 & 3) << 6) | (encoded4 & 63);\n    }\n\n    return arraybuffer;\n  };\n})();\n",
+            "type": "application/javascript",
+            "title": "$:/plugins/tiddlywiki/base64-arraybuffer/base64-arraybuffer.js",
+            "module-type": "library"
+        },
+        "$:/plugins/tiddlywiki/base64-arraybuffer/license": {
+            "text": "Copyright (c) 2012 Niklas von Hertzen\n\nPermission is hereby granted, free of charge, to any person\nobtaining a copy of this software and associated documentation\nfiles (the \"Software\"), to deal in the Software without\nrestriction, including without limitation the rights to use,\ncopy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the\nSoftware is furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\nOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE.\n",
+            "type": "text/plain",
+            "title": "$:/plugins/tiddlywiki/base64-arraybuffer/license"
+        },
+        "$:/plugins/tiddlywiki/base64-arraybuffer/readme": {
+            "text": "# base64-arraybuffer\n\n[![Build Status](https://travis-ci.org/niklasvh/base64-arraybuffer.png)](https://travis-ci.org/niklasvh/base64-arraybuffer)\n[![NPM Downloads](https://img.shields.io/npm/dm/base64-arraybuffer.svg)](https://www.npmjs.org/package/base64-arraybuffer)\n[![NPM Version](https://img.shields.io/npm/v/base64-arraybuffer.svg)](https://www.npmjs.org/package/base64-arraybuffer)\n\nEncode/decode base64 data into ArrayBuffers\n\n## Getting Started\nInstall the module with: `npm install base64-arraybuffer`\n\n## API\nThe library encodes and decodes base64 to and from ArrayBuffers\n\n - __encode(buffer)__ - Encodes `ArrayBuffer` into base64 string\n - __decode(str)__ - Decodes base64 string to `ArrayBuffer`\n\n## License\nCopyright (c) 2012 Niklas von Hertzen\nLicensed under the MIT license.\n",
+            "type": "text/plain",
+            "title": "$:/plugins/tiddlywiki/base64-arraybuffer/readme"
+        }
+    }
+}

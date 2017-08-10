@@ -1,0 +1,12 @@
+created: 20170728020418206
+modified: 20170728020418206
+title: $:/plugins/tiddlywiki/epub-utils/save-except-aws
+type: text/vnd.tiddlywiki
+
+\define saveTiddlerFilter()
+[is[tiddler]] -[prefix[$:/state/popup/]] -[[$:/HistoryList]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]]
+-[[$:/plugins/tiddlywiki/aws]] -[[$:/plugins/tiddlywiki/blog]]
+-[type[application/epub+zip]]
++[sort[title]] $(publishFilter)$
+\end
+{{$:/core/templates/tiddlywiki5.html}}

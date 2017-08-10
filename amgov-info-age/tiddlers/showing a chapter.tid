@@ -1,0 +1,16 @@
+created: 20170804173918737
+modified: 20170810140402122
+tags: [[epubble display]]
+title: showing a chapter
+type: text/vnd.tiddlywiki
+
+Target: [[American Government and Politics in the Information Age//OEBPS/part-008-chapter-8-participation-voting-and-social-movements.xhtml]]
+
+<$list filter="[list[American Government and Politics in the Information Age//OEBPS/part-008-chapter-8-participation-voting-and-social-movements.xhtml]]">
+<!--0 <$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>-->
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" /></div>
+<$list filter="[list<currentTiddler>list-children[]]">
+<!--1 <$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>-->
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" class={{!!toc-type}}/></div><hr>
+</$list>
+</$list>

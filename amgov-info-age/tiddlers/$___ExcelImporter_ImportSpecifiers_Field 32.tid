@@ -1,0 +1,11 @@
+created: 20170809201140509
+import-field-column: module-description
+import-field-list-op: none
+import-field-name: module-description
+import-field-source: column
+import-field-type: string
+import-spec-role: field
+modified: 20170809201239459
+title: $:/_ExcelImporter/ImportSpecifiers/Field 32
+type: text/vnd.tiddlywiki
+

@@ -1,0 +1,8 @@
+caption: amgov-syllabus-elements
+created: 20170809193958134
+import-spec-role: workbook
+list: [[$:/_ExcelImporter/ImportSpecifiers/Sheet 2]] [[$:/_ExcelImporter/ImportSpecifiers/Sheet 1]]
+modified: 20170809201054635
+title: $:/_ExcelImporter/ImportSpecifiers/Workbook 1
+type: text/vnd.tiddlywiki
+

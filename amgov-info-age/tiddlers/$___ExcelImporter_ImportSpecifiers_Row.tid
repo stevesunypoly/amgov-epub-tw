@@ -1,0 +1,7 @@
+created: 20170809190123953
+import-spec-role: row
+list: [[$:/_ExcelImporter/ImportSpecifiers/Field 4]] [[$:/_ExcelImporter/ImportSpecifiers/Field 2]] [[$:/_ExcelImporter/ImportSpecifiers/Field 1]] $:/_ExcelImporter/ImportSpecifiers/Field
+modified: 20170809193631374
+title: $:/_ExcelImporter/ImportSpecifiers/Row
+type: text/vnd.tiddlywiki
+

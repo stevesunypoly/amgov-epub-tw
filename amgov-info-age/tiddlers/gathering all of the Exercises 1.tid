@@ -1,0 +1,15 @@
+created: 20170804173231983
+modified: 20170810140334984
+tags: [[epubble display]]
+title: gathering all of the Exercises
+type: text/vnd.tiddlywiki
+
+<$list filter="[role[epubble-spine]list-children[]search[Exercises]]">
+^^<$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>^^
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" /></div>
+<$list filter="[list<currentTiddler>list-children[]]">
+<!--1 <$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>-->
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" class={{!!toc-type}}/></div>
+</$list>
+<hr>
+</$list>

@@ -1,0 +1,10 @@
+created: 20170728020601843
+modified: 20170728020601843
+title: Publications
+type: text/vnd.tiddlywiki
+
+<div class="tc-epubble-publications-list">
+
+<$list filter="[role[epubble-spine]]" template="PublicationTemplate"/>
+
+</div>

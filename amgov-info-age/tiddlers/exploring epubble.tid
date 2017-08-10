@@ -1,0 +1,26 @@
+created: 20170804173358173
+modified: 20170810141009857
+tags: 
+title: exploring epubble
+type: text/vnd.tiddlywiki
+
+To date, I've:
+
+* put this in node.js
+
+Increasingly, it seems I will need to have a deep understanding of the content of the tiddlers, and won't just be able to use fields or the list field (children) to generate the display. For example, I may want to pull out all sections that have "in the Information Age" into a separate tiddler, or all sections that are "Exercises" (see below). Both of these tasks require some parsing of the text fields of tiddlers (I think).
+
+This would be difficult, and not generalizable, which might be ok. That is the process of "tiddlywikification" that needs to be done.
+
+* built what I'll call <<tag "epubble display">> which is a way of identifying and extracting tiddlers for participants to experience: readers can read, and annotators would have hooks to annotate:
+
+** [[List of Modules]]: lists all of the modules and intersects fields build using xlsx; will need to generate links from here to [[showing a chapter]]. Is core 
+** [[gathering all of the Exercises]] - display all exercises in book - no hook for chapter #
+** [[showing a chapter sub-section]] - show a specific chapter-sub-section (would be used in TOC)
+** [[showing a chapter]] - show a specific chapter-sub-section (would be used in TOC) - ``fails! ``because of the nature of list field in chapter tiddlers, doesn't recognize entire chapter
+** [[gathering all of the Learning Objectives]] - show all learning objectives
+
+* Thoughts
+
+** Gonna need some hooks in tiddlers during import, perhaps by modifying the way TOC fields are generated?
+** Need to understand how CSS can be generated. Especially need to incorporate heading level into CSS so probably need a macro?

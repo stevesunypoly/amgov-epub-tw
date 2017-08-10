@@ -1,0 +1,23 @@
+created: 20170809190946810
+modified: 20170810140320517
+tags: [[epubble display]]
+title: List of Modules
+type: text/vnd.tiddlywiki
+
+<$list filter="[tag[Modules]sort[module-number]]">
+<h2>Module {{!!module-number}}: <<currentTiddler>></h2>
+<$vars module-number={{!!module-number}}>
+<$list filter="[tag[Days]module-number<module-number>sort[sortable-dates]first[]]">
+<<currentTiddler>> - 
+</$list>
+<$list filter="[tag[Days]module-number<module-number>sort[sortable-dates]last[]]">
+ <<currentTiddler>> <br>
+</$list>
+Readings:<br>
+<ul>
+<$list filter="[tag[Days]!chapters-assigned[]sort[sortable-date]module-number<module-number>]">
+<li><<currentTiddler>>: {{!!chapters-assigned}}</li>
+</$list>
+</ul>
+</$vars>
+</$list>

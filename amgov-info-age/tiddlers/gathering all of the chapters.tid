@@ -1,0 +1,9 @@
+created: 20170809180108571
+modified: 20170809180258797
+tags: 
+title: gathering all of the chapters
+type: text/vnd.tiddlywiki
+
+<$list filter="[role[epubble-spine]list-children[]search[Chapter]]">
+<<currentTiddler>>
+</$list>

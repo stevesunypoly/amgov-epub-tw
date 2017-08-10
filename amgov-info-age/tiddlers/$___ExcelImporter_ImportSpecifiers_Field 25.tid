@@ -1,0 +1,10 @@
+created: 20170809200814619
+import-field-column: chapters
+import-field-name: chapters-assigned
+import-field-source: column
+import-field-type: string
+import-spec-role: field
+modified: 20170809200830074
+title: $:/_ExcelImporter/ImportSpecifiers/Field 25
+type: text/vnd.tiddlywiki
+

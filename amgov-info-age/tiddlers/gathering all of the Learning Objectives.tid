@@ -1,0 +1,14 @@
+created: 20170728034213578
+modified: 20170810140422792
+tags: [[epubble display]]
+title: gathering all of the Learning Objectives
+type: text/vnd.tiddlywiki
+
+<$list filter="[role[epubble-spine]list-children[]search[Learning Objectives]]">
+^^<$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>^^
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" /></div>
+<$list filter="[list<currentTiddler>list-children[]]">
+<!--1 <$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>-->
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" class={{!!toc-type}}/></div>
+</$list><hr>
+</$list>

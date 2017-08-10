@@ -1,0 +1,24 @@
+created: 20170728030419915
+modified: 20170728031255735
+tags: 
+title: amgov-info-age/PublicationTemplate
+type: text/vnd.tiddlywiki
+
+\define linkactions()
+<$vars currentTiddler=<<navigateTo>>>
+<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>
+</$vars>
+\end
+
+<h1><$link><$text text=<<currentTiddler>>/></$link></h1>
+
+<$vars currentPage=<<qualify "$:/state/tabs/publication">>>
+<$linkcatcher actions=<<linkactions>>>
+<$list filter="[list<currentTiddler>nth[50]]">
+<$transclude tiddler=<currentTiddler> template="PublicationPageTemplate"/>
+</$list>
+
+
+<!--<$macrocall $name="tabs" tabsList="[list<currentTiddler>]" state="$:/state/tabs/publication" default={{{ [list<currentTiddler>butfirst[]] }}} template="PublicationPageTemplate" class="tc-vertical"/>-->
+</$linkcatcher>
+</$vars>

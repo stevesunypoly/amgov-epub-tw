@@ -1,0 +1,10 @@
+created: 20170809200938686
+import-field-column: chapter
+import-field-name: chapter-link
+import-field-source: column
+import-field-type: string
+import-spec-role: field
+modified: 20170809200959225
+title: $:/_ExcelImporter/ImportSpecifiers/Field 28
+type: text/vnd.tiddlywiki
+

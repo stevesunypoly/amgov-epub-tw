@@ -1,0 +1,52 @@
+caption: Table of Contents
+created: 20170728020418281
+modified: 20170728020418281
+tags: $:/tags/SideBar
+title: $:/epubble/SideBar
+type: text/vnd.tiddlywiki
+
+\define msg-no-publications()
+No publications are present
+\end
+
+\define linkactions()
+<$vars currentTiddler=<<navigateTo>>>
+<$action-navigate $to={{!!target}}/>
+</$vars>
+\end
+
+<$list filter="[role[epubble-spine]!has[draft.of]sort[title]limit[1]]" emptyMessage=<<msg-no-publications>>>
+
+<$vars currentPublication=<<qualify "$:/state/currentPublication">>>
+
+<$select tiddler=<<currentPublication>> default={{{ [role[epubble-spine]] }}}>
+<$list filter="[role[epubble-spine]]">
+<option value=<<currentTiddler>>><$text text=<<currentTiddler>>/></option>
+</$list>
+</$select>
+
+<$tiddler tiddler=<<currentPublication>>>
+
+<$set name="currentTiddler" emptyValue={{{ [role[epubble-spine]] }}} filter="[{!!text}!is[missing]]" select="0">
+
+<$tiddler tiddler={{!!table-of-contents}}>
+
+<div class='tc-table-of-contents'>
+
+<$linkcatcher actions=<<linkactions>>>
+
+<$macrocall $name="toc" tag=<<currentTiddler>>/>
+
+</$linkcatcher>
+
+</div>
+
+</$tiddler>
+
+</$set>
+
+</$tiddler>
+
+</$vars>
+
+</$list>

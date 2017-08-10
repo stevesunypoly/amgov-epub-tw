@@ -1,0 +1,18 @@
+created: 20170728020601848
+modified: 20170728020601848
+title: PublicationTemplate
+type: text/vnd.tiddlywiki
+
+\define linkactions()
+<$vars currentTiddler=<<navigateTo>>>
+<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>
+</$vars>
+\end
+
+<h1><$link><$text text=<<currentTiddler>>/></$link></h1>
+
+<$vars currentPage=<<qualify "$:/state/tabs/publication">>>
+<$linkcatcher actions=<<linkactions>>>
+<$macrocall $name="tabs" tabsList="[list<currentTiddler>]" state="$:/state/tabs/publication" default={{{ [list<currentTiddler>butfirst[]] }}} template="PublicationPageTemplate" class="tc-vertical"/>
+</$linkcatcher>
+</$vars>

@@ -1,0 +1,18 @@
+created: 20170809181950480
+modified: 20170809182104173
+tags: $:/tags/Macros
+title: showing a chapter macro
+type: text/vnd.tiddlywiki
+
+\define show-chapter(tiddler)
+<$vars show-tiddler=$tiddler$>
+
+<$list filter="[list<show-tiddler>]">
+<!--0 <$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>-->
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" /></div>
+<$list filter="[list<currentTiddler>list-children[]]">
+<!--1 <$link>></$link>{{!!toc-type}} {{!!toc-heading-level}}<br>-->
+<div class={{!!toc-type}}><$transclude template="PublicationPageTemplate" class={{!!toc-type}}/></div>
+</$list>
+</$list>
+\end

@@ -1,0 +1,12 @@
+created: 20170809200720169
+import-field-column: Days
+import-field-list-op: append
+import-field-name: tags
+import-field-source: constant
+import-field-type: string
+import-field-value: Days
+import-spec-role: field
+modified: 20170809200849299
+title: $:/_ExcelImporter/ImportSpecifiers/Field 21
+type: text/vnd.tiddlywiki
+
