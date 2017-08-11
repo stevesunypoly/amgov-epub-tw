@@ -1,5 +1,5 @@
-created: 20170728020601848
-modified: 20170728020601848
+created: 20170810202900472
+modified: 20170810204305419
 title: PublicationTemplate
 type: text/vnd.tiddlywiki
 
@@ -9,10 +9,24 @@ type: text/vnd.tiddlywiki
 </$vars>
 \end
 
+\define showTiddler(tiddlerToShow)
+<$vars tiddlerToShow="""$tiddlerToShow$""">
+<$list filter="[list<tiddlerToShow>]" template="amgovPublicationPageTemplate">
+<<currentTiddler>><hr>
+</$list>
+</$vars>
+\end
+
+
+
 <h1><$link><$text text=<<currentTiddler>>/></$link></h1>
 
 <$vars currentPage=<<qualify "$:/state/tabs/publication">>>
 <$linkcatcher actions=<<linkactions>>>
-<$macrocall $name="tabs" tabsList="[list<currentTiddler>]" state="$:/state/tabs/publication" default={{{ [list<currentTiddler>butfirst[]] }}} template="PublicationPageTemplate" class="tc-vertical"/>
+<$list filter="[list<currentTiddler>nth[100]]">
+<$macrocall $name=showTiddler tiddlerToShow=<<currentTiddler>>/>
+<br>
+</$list>
+<!--<$macrocall $name="tabs" tabsList="[list<currentTiddler>]" state="$:/state/tabs/publication" default={{{ [list<currentTiddler>butfirst[]] }}} template="PublicationPageTemplate" class="tc-vertical"/>-->
 </$linkcatcher>
 </$vars>

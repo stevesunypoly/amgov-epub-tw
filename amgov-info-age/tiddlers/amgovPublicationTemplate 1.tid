@@ -1,0 +1,37 @@
+created: 20170811135055203
+modified: 20170811151808690
+tags: 
+title: amgovPublicationTemplate 1
+type: text/vnd.tiddlywiki
+
+\define linkactions()
+<$vars currentTiddler=<<navigateTo>>>
+<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>
+</$vars>
+\end
+
+\define showTiddler()
+<$vars tiddlerToShow={{$:/tiddlerToShow}}>
+<$macrocall $name="tabs" tabsList="[title{$:/tiddlerToShow}]" state="$:/state/tabs/publication" template="amgovPublicationPageTemplate 1"/>
+\end
+
+
+
+<h1><$link><$text text=<<currentTiddler>>/></$link></h1>
+
+<$vars currentPage=<<qualify "$:/state/tabs/publication">>>
+<$linkcatcher actions=<<linkactions>>>
+
+There are <$count filter="[list<currentTiddler>]"/> tiddlers<br>
+Here they are in a list:
+<$select tiddler="$:/tiddlerToShow" default='Cover'>
+<$list filter='[list<currentTiddler>]'>
+<option value=<<currentTiddler>>><$view field='title'/></option>
+</$list>
+</$select>
+<hr>
+
+<$macrocall $name="showTiddler"/>
+<!--<$macrocall $name="tabs" tabsList="[title{$:/tiddlerToShow}]" state="$:/state/tabs/publication" default="title{$:/tiddlerToShow}]" template="amgovPublicationPageTemplate 1" class="tc-horizontal"/>-->
+</$linkcatcher>
+</$vars>

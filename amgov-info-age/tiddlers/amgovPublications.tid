@@ -1,0 +1,11 @@
+created: 20170810191743842
+modified: 20170810204241871
+tags: 
+title: amgovPublications
+type: text/vnd.tiddlywiki
+
+<div class="tc-epubble-publications-list">
+
+<$list filter="[role[epubble-spine]]" template="PublicationTemplate"/>
+
+</div>

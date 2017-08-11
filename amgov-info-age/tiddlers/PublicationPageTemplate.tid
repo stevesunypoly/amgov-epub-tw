@@ -1,0 +1,16 @@
+created: 20170810191632184
+modified: 20170810191632184
+title: PublicationPageTemplate
+type: text/vnd.tiddlywiki
+
+<$vars
+	tv-default-heading-state="open"
+>
+
+<$tiddler tiddler=<<currentTab>>>
+
+<$transclude tiddler="$:/plugins/tiddlywiki/text-slicer/templates/plain/tiddler"/>
+
+</$tiddler>
+
+</$vars>
