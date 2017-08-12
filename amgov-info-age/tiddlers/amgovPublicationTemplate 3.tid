@@ -1,5 +1,5 @@
 created: 20170812154347004
-modified: 20170812154915031
+modified: 20170812161638782
 tags: 
 title: amgovPublicationTemplate 3
 type: text/vnd.tiddlywiki
@@ -11,7 +11,8 @@ type: text/vnd.tiddlywiki
 \end
 
 \define showTiddler()
-tiddlerToShow: <$link>{{$:/tiddlerToShow}}</$link><br>
+tiddlerToShow: {{tiddlerToShow}}<br>
+ <$link to={{tiddlerToShow}}>{{tiddlerToShow}}</$link><br>
 <$macrocall $name="xtabs" tabsList="[title{$:/tiddlerToShow}]" state="$:/state/tabs/publication" template="amgovPublicationPageTemplate 1"/>
 \end
 
@@ -22,15 +23,19 @@ tiddlerToShow: <$link>{{$:/tiddlerToShow}}</$link><br>
 <$vars currentPage=<<qualify "$:/state/tabs/publication">>>
 <$linkcatcher actions=<<linkactions>>>
 
-There are <$count filter="[list<currentTiddler>]"/> tiddlers<br>
-Here they are in a list:<br>
-<$select tiddler="$:/tiddlerToShow" default='Cover'>
+ <$count filter="[list<currentTiddler>]"/> tiddlers in list of <$link><<currentTiddler>></$link><br>
+<$select tiddler="tiddlerToShow" default='Cover'>
 <$list filter='[list<currentTiddler>]'>
-<option value=<<currentTiddler>>><$view field='caption'/></option>
+<$vars target={{!!target}}>
+<option value=<<target>>><$view field='caption'/></option>
+</$vars>
 </$list>
-</$select><br>
+</$select>
 
-<$macrocall $name="showTiddler"/>
+howdy
+<br>
+tiddlerToShow: {{tiddlerToShow}}<br>
+ <$link to={{tiddlerToShow}}>{{tiddlerToShow}}</$link><br>
 <!--<$macrocall $name="tabs" tabsList="[title{$:/tiddlerToShow}]" state="$:/state/tabs/publication" default="title{$:/tiddlerToShow}]" template="amgovPublicationPageTemplate 1" class="tc-horizontal"/>-->
 </$linkcatcher>
 </$vars>
