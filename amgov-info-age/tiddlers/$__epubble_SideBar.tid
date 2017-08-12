@@ -1,6 +1,6 @@
 caption: Table of Contents
 created: 20170728020418281
-modified: 20170728020418281
+modified: 20170812153530125
 tags: $:/tags/SideBar
 title: $:/epubble/SideBar
 type: text/vnd.tiddlywiki
@@ -25,9 +25,19 @@ No publications are present
 </$list>
 </$select>
 
-<$tiddler tiddler=<<currentPublication>>>
+<hr>
 
+
+<$tiddler tiddler=<<currentPublication>>>
 <$set name="currentTiddler" emptyValue={{{ [role[epubble-spine]] }}} filter="[{!!text}!is[missing]]" select="0">
+
+currentTiddler: <$link><<currentTiddler>></$link><br>
+currentPublication: <$link><<currentPublication>></$link><br>
+table-of-contents: <$link to={{!!table-of-contents}}>{{!!table-of-contents}}</$link><br>
+
+<hr>
+
+
 
 <$tiddler tiddler={{!!table-of-contents}}>
 
@@ -36,6 +46,7 @@ No publications are present
 <$linkcatcher actions=<<linkactions>>>
 
 <$macrocall $name="toc" tag=<<currentTiddler>>/>
+
 
 </$linkcatcher>
 

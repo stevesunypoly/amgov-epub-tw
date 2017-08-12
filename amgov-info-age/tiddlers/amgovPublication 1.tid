@@ -1,5 +1,5 @@
 created: 20170810191743842
-modified: 20170811150524704
+modified: 20170811185256093
 tags: 
 title: amgovPublication 1
 type: text/vnd.tiddlywiki
@@ -7,5 +7,7 @@ type: text/vnd.tiddlywiki
 <div class="tc-epubble-publications-list">
 
 <$list filter="[role[epubble-spine]]" template="amgovPublicationTemplate 1"/>
+</$list>
+
 
 </div>

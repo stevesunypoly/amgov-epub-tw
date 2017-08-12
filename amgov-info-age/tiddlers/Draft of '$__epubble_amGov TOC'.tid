@@ -1,0 +1,48 @@
+caption: amgov toc
+created: 20170811191627798
+draft.of: $:/epubble/amGov TOC
+draft.title: $:/epubble/amGov TOC
+modified: 20170811201931053
+title: Draft of '$:/epubble/amGov TOC'
+type: text/vnd.tiddlywiki
+
+\define msg-no-publications()
+No publications are present
+\end
+
+\define linkactions()
+<$vars currentTiddler=<<navigateTo>>>
+<$action-navigate $to={{!!target}}/>
+</$vars>
+\end
+
+
+
+
+
+
+<$list filter="[role[epubble-spine]!has[draft.of]sort[title]limit[1]]" emptyMessage=<<msg-no-publications>>>
+
+<$tiddler tiddler={{!!table-of-contents}}>
+
+<$linkcatcher actions=<<linkactions>>>
+
+There are <$count filter="[list<currentTiddler>]"/> tiddlers in the filter.<br>
+Here they are in a list:<br>
+<$select tiddler="$:/otiddlerToShow">
+<$list filter='[list<currentTiddler>]'>
+<option value=<<currentTiddler>>><$view field='title'/></option>
+</$list>
+</$select>
+
+The selected tiddler is <br>
+<$link to={{$:/otiddlerToShow}}>{{$:/otiddlerToShow}}</$link><br>
+<$vars tiddlerToShow="""{{$:/otiddlerToShow}}""">
+
+<$link to=<<tiddlerToShow>>><<tiddlerToShow>></$link><br>
+
+
+<hr>
+<$transclude tiddler={{$:/otiddlerToShow}}/>
+<hr>
+
