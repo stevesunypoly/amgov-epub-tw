@@ -1,0 +1,12 @@
+tiddlywiki --verbose --load ../../original-wiki/index.html --load amgov-tiddlers.json --rendertiddler $:/core/save/all amgov-wiki.html text/plain
+
+
+
+node ./tiddlywiki.js \
+	./path/to/my/wiki/folder \
+	--verbose \
+	--load ./path/to/my/wikifile \
+	--rendertiddler $:/core/templates/tiddlywiki5.template.html ./test.html text/plain \
+	|| exit 1
+
+

@@ -1,0 +1,11 @@
+created: 20170812152707872
+modified: 20170813180248117
+tags: 
+title: amgovPublication 3 filter on toc
+type: text/vnd.tiddlywiki
+
+<div class="tc-epubble-publications-list">
+
+<$list filter="[title[American Government and Politics in the Information Age//toc.ncx]]" template="amgovPublicationTemplate 3"/>
+</$list>
+</div>

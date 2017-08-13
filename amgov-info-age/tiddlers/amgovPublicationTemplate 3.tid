@@ -1,41 +1,31 @@
 created: 20170812154347004
-modified: 20170812161638782
+modified: 20170813194048033
 tags: 
 title: amgovPublicationTemplate 3
 type: text/vnd.tiddlywiki
 
-\define linkactions()
-<$vars currentTiddler=<<navigateTo>>>
-<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>
-</$vars>
-\end
+<div style="background-color:lightblue">
+<$count filter="[toc<currentTiddler>]"/> tiddlers in toc of <$link><$text text=<<currentTiddler>>/></$link>
+</div>
 
-\define showTiddler()
-tiddlerToShow: {{tiddlerToShow}}<br>
- <$link to={{tiddlerToShow}}>{{tiddlerToShow}}</$link><br>
-<$macrocall $name="xtabs" tabsList="[title{$:/tiddlerToShow}]" state="$:/state/tabs/publication" template="amgovPublicationPageTemplate 1"/>
-\end
-
-
-
-<h1><$link><$text text=<<currentTiddler>>/></$link></h1>
-
-<$vars currentPage=<<qualify "$:/state/tabs/publication">>>
-<$linkcatcher actions=<<linkactions>>>
-
- <$count filter="[list<currentTiddler>]"/> tiddlers in list of <$link><<currentTiddler>></$link><br>
+<div style="background-color:lightgreen">
 <$select tiddler="tiddlerToShow" default='Cover'>
-<$list filter='[list<currentTiddler>]'>
-<$vars target={{!!target}}>
-<option value=<<target>>><$view field='caption'/></option>
-</$vars>
+<$list filter='[toc<currentTiddler>]'>
+<option value={{!!target}}><$view field='caption'/></option>
 </$list>
 </$select>
+</div>
 
-howdy
-<br>
-tiddlerToShow: {{tiddlerToShow}}<br>
- <$link to={{tiddlerToShow}}>{{tiddlerToShow}}</$link><br>
-<!--<$macrocall $name="tabs" tabsList="[title{$:/tiddlerToShow}]" state="$:/state/tabs/publication" default="title{$:/tiddlerToShow}]" template="amgovPublicationPageTemplate 1" class="tc-horizontal"/>-->
-</$linkcatcher>
-</$vars>
+<div style="background-color:white">
+<$list filter="[title{tiddlerToShow}list-children[]]">
+<$transclude tiddler="amgovPublicationPageTemplate 3"/>
+</$list>
+</div>
+
+<div style="background-color:lightgreen">
+<$select tiddler="tiddlerToShow" default='Cover'>
+<$list filter='[toc<currentTiddler>]'>
+<option value={{!!target}}><$view field='caption'/></option>
+</$list>
+</$select>
+</div>

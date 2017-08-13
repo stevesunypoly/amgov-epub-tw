@@ -1,0 +1,17 @@
+created: 20170813175342137
+modified: 20170813180248122
+tags: 
+title: amgovPublicationPageTemplate 3
+type: text/vnd.tiddlywiki
+
+<$vars
+	tv-default-heading-state="open"
+>
+
+<$tiddler tiddler=<<currentTiddler>>>
+
+<$transclude tiddler="$:/plugins/tiddlywiki/text-slicer/templates/plain/tiddler"/>
+
+</$tiddler>
+
+</$vars>

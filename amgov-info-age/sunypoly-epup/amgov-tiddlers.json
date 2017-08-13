@@ -1,0 +1,112 @@
+[
+    {
+        "text": "This Tiddlywiki is host of a project to render an TiddlyWiki created using epubble as a course-ready open educational resource, integrating syllabus elements (weeks, assignments, classes, etc.) and student reflections (either links or tiddlers) at the sub-chapter level ",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgov-info-age",
+        "tags": "",
+        "modified": "20170728015546725",
+        "created": "20170728015320065"
+    },
+    {
+        "text": "<div class=\"tc-epubble-publications-list\">\n\n<$list filter=\"[role[epubble-spine]]\" template=\"amgovPublicationTemplate 1\"/>\n</$list>\n\n\n</div>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublication 1",
+        "tags": "",
+        "modified": "20170811185256093",
+        "created": "20170810191743842"
+    },
+    {
+        "text": "<div class=\"tc-epubble-publications-list\">\n\n<$list filter=\"[role[epubble-spine]]\" template=\"amgovPublicationTemplate 2\"/>\n</$list>\n\n\n</div>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublication 2",
+        "tags": "",
+        "modified": "20170811185349204",
+        "created": "20170811185337979"
+    },
+    {
+        "text": "<div class=\"tc-epubble-publications-list\">\n\nfilter \"[title[American Government and Politics in the Information Age//toc.ncx]]\"<br>\n<$list filter=\"[title[American Government and Politics in the Information Age//toc.ncx]]\" template=\"amgovPublicationTemplate 3\"/>\n</$list>\n</div>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublication 3",
+        "tags": "",
+        "modified": "20170812160333185",
+        "created": "20170812152707872"
+    },
+    {
+        "text": "<$vars\n\ttv-default-heading-state=\"open\"\n>\n\n<$tiddler tiddler=<<currentTab>>>\n\n<$transclude tiddler=\"$:/plugins/tiddlywiki/text-slicer/templates/plain/tiddler\"/>\n\n</$tiddler>\n\n</$vars>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublicationPageTemplate",
+        "tags": "",
+        "modified": "20170810192741773",
+        "created": "20170810192725819"
+    },
+    {
+        "text": "<$vars\n\ttv-default-heading-state=\"open\"\n>\n\n<$tiddler tiddler=<<currentTab>>>\n\n<$transclude tiddler=\"$:/plugins/tiddlywiki/text-slicer/templates/plain/tiddler\"/>\n\n</$tiddler>\n\n</$vars>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublicationPageTemplate 1",
+        "tags": "",
+        "modified": "20170811150524713",
+        "created": "20170811140015446"
+    },
+    {
+        "text": "<div class=\"tc-epubble-publications-list\">\n\n<$list filter=\"[role[epubble-spine]]\" template=\"PublicationTemplate\"/>\n\n</div>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublications",
+        "tags": "",
+        "modified": "20170810204241871",
+        "created": "20170810191743842"
+    },
+    {
+        "text": "\\define linkactions()\n<$vars currentTiddler=<<navigateTo>>>\n<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>\n</$vars>\n\\end\n\n<h1><$link><$text text=<<currentTiddler>>/></$link></h1>\n\n<$vars currentPage=<<qualify \"$:/state/tabs/publication\">>>\n<$linkcatcher actions=<<linkactions>>>\n<$list filter=\"[list<currentTiddler>nth[50]]\">\n<$transclude tiddler=<currentTiddler> template=\"PublicationPageTemplate\"/>\n</$list>\n\n\n<$macrocall $name=\"tabs\" tabsList=\"[list<currentTiddler>]\" state=\"$:/state/tabs/publication\" default={{{ [list<currentTiddler>butfirst[]] }}} template=\"PublicationPageTemplate\" class=\"tc-vertical\"/>\n</$linkcatcher>\n</$vars>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublicationTemplate",
+        "tags": "",
+        "modified": "20170810192953336",
+        "created": "20170728030419915"
+    },
+    {
+        "text": "\\define linkactions()\n<$vars currentTiddler=<<navigateTo>>>\n<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>\n</$vars>\n\\end\n\n\\define showTiddler()\n<$macrocall $name=\"tabs\" tabsList=\"[title{$:/tiddlerToShow}]\" state=\"$:/state/tabs/publication\" template=\"amgovPublicationPageTemplate 1\"/>\n\\end\n\n\n\n<h1><$link><$text text=<<currentTiddler>>/></$link></h1>\n\n<$vars currentPage=<<qualify \"$:/state/tabs/publication\">>>\n<$linkcatcher actions=<<linkactions>>>\n\nThere are <$count filter=\"[list<currentTiddler>]\"/> tiddlers<br>\nHere they are in a list:<br>\n<$select tiddler=\"$:/tiddlerToShow\" default='Cover'>\n<$list filter='[list<currentTiddler>]'>\n<option value=<<currentTiddler>>><$view field='title'/></option>\n</$list>\n</$select>\n\n\n<$macrocall $name=\"showTiddler\"/>\n<!--<$macrocall $name=\"tabs\" tabsList=\"[title{$:/tiddlerToShow}]\" state=\"$:/state/tabs/publication\" default=\"title{$:/tiddlerToShow}]\" template=\"amgovPublicationPageTemplate 1\" class=\"tc-horizontal\"/>-->\n</$linkcatcher>\n</$vars>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublicationTemplate 1",
+        "tags": "",
+        "modified": "20170811185318739",
+        "created": "20170811135055203"
+    },
+    {
+        "text": "\\define linkactions()\n<$vars currentTiddler=<<navigateTo>>>\n<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>\n</$vars>\n\\end\n\n\\define showTiddler()\n<$vars tiddlerToShow={{$:/tiddlerToShow}}>\n<$macrocall $name=\"tabs\" tabsList=\"[title{$:/tiddlerToShow}]\" state=\"$:/state/tabs/publication\" template=\"amgovPublicationPageTemplate 1\"/>\n\\end\n\n\n\n<h1><$link><$text text=<<currentTiddler>>/></$link></h1>\n\n<$vars currentPage=<<qualify \"$:/state/tabs/publication\">>>\n<$linkcatcher actions=<<linkactions>>>\n\nThere are <$count filter=\"[list<currentTiddler>]\"/> tiddlers<br>\nHere they are in a list:<br>\n<$select tiddler=\"$:/tiddlerToShow\" default='Cover'>\n<$list filter='[list<currentTiddler>]'>\n<option value=<<currentTiddler>>><$view field='title'/></option>\n</$list>\n</$select>\n<hr>\n<$macrocall $name=\"showTiddler\"/>\n</$linkcatcher>\n</$vars>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublicationTemplate 2",
+        "tags": "",
+        "modified": "20170811185550379",
+        "created": "20170811184840037"
+    },
+    {
+        "text": "\\define linkactions()\n<$vars currentTiddler=<<navigateTo>>>\n<$action-setfield $tiddler=<<currentPage>> $value={{!!target}}/>\n</$vars>\n\\end\n\n\\define showTiddler()\ntiddlerToShow: {{tiddlerToShow}}<br>\n <$link to={{tiddlerToShow}}>{{tiddlerToShow}}</$link><br>\n<$macrocall $name=\"xtabs\" tabsList=\"[title{$:/tiddlerToShow}]\" state=\"$:/state/tabs/publication\" template=\"amgovPublicationPageTemplate 1\"/>\n\\end\n\n\n\n<h1><$link><$text text=<<currentTiddler>>/></$link></h1>\n\n<$vars currentPage=<<qualify \"$:/state/tabs/publication\">>>\n<$linkcatcher actions=<<linkactions>>>\n\n <$count filter=\"[list<currentTiddler>]\"/> tiddlers in list of <$link><<currentTiddler>></$link><br>\n<$select tiddler=\"tiddlerToShow\" default='Cover'>\n<$list filter='[list<currentTiddler>]'>\n<$vars target={{!!target}}>\n<option value=<<target>>><$view field='caption'/></option>\n</$vars>\n</$list>\n</$select>\n\nhowdy\n<br>\ntiddlerToShow: {{tiddlerToShow}}<br>\n <$link to={{tiddlerToShow}}>{{tiddlerToShow}}</$link><br>\n<!--<$macrocall $name=\"tabs\" tabsList=\"[title{$:/tiddlerToShow}]\" state=\"$:/state/tabs/publication\" default=\"title{$:/tiddlerToShow}]\" template=\"amgovPublicationPageTemplate 1\" class=\"tc-horizontal\"/>-->\n</$linkcatcher>\n</$vars>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "amgovPublicationTemplate 3",
+        "tags": "",
+        "modified": "20170812161638782",
+        "created": "20170812154347004"
+    }
+]
