@@ -1,0 +1,12 @@
+created: 20170814135053597
+modified: 20170814150529610
+tags: 
+title: amgovPublication 4
+type: text/vnd.tiddlywiki
+
+Synopsis: Works well as a three-level selection to a block of text that is right-sized. However, the first and last blocks (on the third select) are confused, probably because of the presence of h2 or h3 headings; they are not properly put in the toc at the time of conversion? should be easy to fix with a contextual search for //Learning Objectives//, //Key Takeaways// and //Exercises// if there are no structural hooks to hang onto.<br>
+
+Template: [[amgovPublicationTemplate 4]]<hr>
+<div class="tc-epubble-publications-list">
+<$list filter="[title[American Government and Politics in the Information Age//toc.ncx]]" template="amgovPublicationTemplate 4"/>
+</div>

@@ -1,0 +1,15 @@
+created: 20170814135129370
+modified: 20170814145123582
+tags: 
+title: amgovPublicationPageTemplate 4
+type: text/vnd.tiddlywiki
+
+
+
+<$tiddler tiddler=<<currentTiddler>>>
+
+<$transclude tiddler="$:/plugins/tiddlywiki/text-slicer/templates/plain/tiddler"/>
+
+</$tiddler>
+
+

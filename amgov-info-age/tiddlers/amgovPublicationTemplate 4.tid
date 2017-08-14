@@ -1,0 +1,53 @@
+created: 20170814135112820
+modified: 20170814145701080
+tags: 
+title: amgovPublicationTemplate 4
+type: text/vnd.tiddlywiki
+
+Publication: [[amgovPublication 4]]<hr>
+<div style="background-color:lightblue">
+<h2>filtering on toc</h2>
+<$count filter="[toc<currentTiddler>]"/> tiddlers in toc of <$link><$text text=<<currentTiddler>>/></$link><br>
+<$select tiddler="level1TocTiddler" default='Cover'>
+<$list filter='[toc:level=1<currentTiddler>]'>
+<option value={{!!title}}><$view field='caption'/></option>
+</$list>
+</$select>
+<br>
+Selected: <$link to={{level1TocTiddler}}><$text text={{level1TocTiddler}}/></$link>
+<hr>
+</div>
+
+<div style="background-color:lightgreen">
+<h2>filtering on toc level 2</h2>
+<$count filter="[toc{level1TocTiddler}]"/> tiddlers in toc of <$link><$text 
+text={{level1TocTiddler}}/></$link><br>
+<$select tiddler="level2TocTiddler" default='Cover'>
+<$list filter='[toc{level1TocTiddler}]'>
+<option value={{!!target}}><$view field='caption'/></option>
+</$list>
+</$select>
+<br>
+Selected: <$link to={{level2TocTiddler}}><$text text={{level2TocTiddler}}/></$link>
+<hr>
+</div>
+
+<div style="background-color:lightgrey">
+<h2>filtering on headings of level 2 toc</h2>
+<$count filter="[list{level2TocTiddler}toc-type[heading]]"/> tiddlers in toc of <$link><$text text={{level2TocTiddler}}/></$link><br>
+
+<$select tiddler="tiddlerToShow">
+<$list filter='[list{level2TocTiddler}toc-type[heading]]'>
+<option value=<<currentTiddler>>><$view field='text'/></option>
+</$list>
+</$select>
+<br>
+Selected: <$link to={{tiddlerToShow}}><$text text={{tiddlerToShow}}/></$link><hr>
+</div>
+<hr>
+
+<div style="background-color:white">
+<$list filter="[title{tiddlerToShow}list-children[]butfirst[]]">
+<$transclude tiddler="amgovPublicationPageTemplate 4"/>
+</$list>
+</div>
